@@ -12,9 +12,12 @@ const pool = new Pool({
     require: true,
   },
 });
+const allowedOrigin = "https://p5-todo-list.vercel.app/";
 // ------------------------------------------------------------------
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigin,
+}));
 // ---------------------------------Routes-------------------------
 app.get('/', (req, res) => {
   res.send('home page')
